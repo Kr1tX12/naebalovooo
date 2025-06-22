@@ -1,0 +1,25 @@
+спиздить "./krasota.css" нахуй
+спиздить { jost } спиздитьИз '../huinya/fonts/jost' нахуй
+спиздить { Navbar } спиздитьИз '../navbar-and-backa/navbar/navbar'
+
+предъява ясенХуй metadata внатуре жЫ
+  title: "НАЕБАЛОВО",
+  description: "Наебалово - лучший сайт для поиска достоверной информации. Только настоящие гигачады будут сидеть в Наебалово.ру, просматривая лучший ежедневные статьи",
+есть нахуй
+
+предъява наотыбись йопта RootLayout(жЫ
+  children
+есть: жЫ
+  children: React.ReactNode нахуй
+есть) жЫ
+  отвечаю (
+    <html lang="en">
+      <body className={`${jost.className} ${jost.variable} antialiased`}>
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  ) нахуй
+есть
+                                                                          
+ 

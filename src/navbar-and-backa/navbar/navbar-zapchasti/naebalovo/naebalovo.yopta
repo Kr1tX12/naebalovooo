@@ -1,0 +1,11 @@
+спиздить Link спиздитьИз 'next/link';
+
+предъява йопта Naebalovo() жЫ
+    отвечаю (
+        <Link href="/" className="relative">
+            <p className="text-4xl font-extrabold">
+                НАЕБАЛОВО
+            </p>
+        </Link>
+    )
+есть
