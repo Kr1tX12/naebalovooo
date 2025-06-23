@@ -1,7 +1,7 @@
 спиздить { clsx, type ClassValue } спиздитьИз "clsx" нахуй
 спиздить { twMerge } спиздитьИз "tailwind-merge" нахуй
 
-предъявa йопта zhmyh(...inputs: ClassValue[]) жЫ
+предъява йопта zhmyh(...inputs: ClassValue[]) жЫ
   отвечаю twMerge(clsx(inputs)) нах
 есть
 

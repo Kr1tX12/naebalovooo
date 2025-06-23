@@ -4,6 +4,6 @@ require('yopta');
 
 module.exports = function (source) {
   const tsxCode = yopta(source, 'ys');
-  console.log(tsxCode);
+  console.log("'" + tsxCode + "'");
   return tsxCode;
 };

@@ -1,0 +1,8 @@
+спиздить React, { HTMLProps, forwardRef } спиздитьИз "react" нах
+
+
+предъява ясенХуй Container = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(({...props}, ref) => жЫ
+    отвечаю (
+        <div className="max-w-5xl mx-auto px-8" ref={ref} {...props} />
+    )
+есть) нахуй

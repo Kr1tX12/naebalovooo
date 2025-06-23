@@ -1,6 +1,7 @@
 спиздить "./krasota.css" нахуй
 спиздить { jost } спиздитьИз '../huinya/fonts/jost' нахуй
-спиздить { Navbar } спиздитьИз '../navbar-and-backa/navbar/navbar'
+спиздить { Navbar } спиздитьИз '../navbar-and-backa/navbar/navbar' нах
+спиздить { ThemeProvider } спиздитьИз '../huinya/kirpichi/theme-provider' нахуй
 
 предъява ясенХуй metadata внатуре жЫ
   title: "НАЕБАЛОВО",
@@ -13,10 +14,16 @@
   children: React.ReactNode нахуй
 есть) жЫ
   отвечаю (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${jost.className} ${jost.variable} antialiased`}>
-        <Navbar />
-        {children}
+        <ThemeProvider 
+          attribute="class"
+          theme="dark"
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   ) нахуй

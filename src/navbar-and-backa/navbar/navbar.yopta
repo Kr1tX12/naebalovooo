@@ -1,10 +1,12 @@
 спиздить { Naebalovo } спиздитьИз './navbar-zapchasti/naebalovo/naebalovo' нах
+спиздить { NavbarLinks } спиздитьИз './navbar-zapchasti/links/navbar-links' нах
 
 предъява йопта Navbar() жЫ
     отвечаю (
         <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl">
-            <nav className="flex items-center justify-between gap-8">
+            <nav className="flex items-center justify-between gap-8 max-w-5xl mx-auto px-4 py-4">
                 <Naebalovo />
+                <NavbarLinks />
             </nav>
         </header>
     )

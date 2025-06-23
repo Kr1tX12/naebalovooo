@@ -1,11 +1,24 @@
-спиздить Link спиздитьИз 'next/link';
+спиздить Link спиздитьИз 'next/link' нах
+спиздить Image спиздитьИз 'next/image' нах
 
 предъява йопта Naebalovo() жЫ
     отвечаю (
         <Link href="/" className="relative">
-            <p className="text-4xl font-extrabold">
+            <p className="text-4xl font-extrabold" 
+                style={{
+                    textShadow: '-3px 3px 0 var(--color-primary)',
+                }}>
                 НАЕБАЛОВО
             </p>
+            <Image
+                style={{
+                    filter: 'drop-shadow(-3px 3px 0 var(--color-primary))',
+                }}
+                className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" 
+                src="/images/trollface.jpg"
+                alt="trollface"
+                width={70}
+                height={56.88} />
         </Link>
     )
 есть

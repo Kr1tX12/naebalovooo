@@ -1,0 +1,30 @@
+'use client';
+
+спиздить { меню, ПроходФасон } спиздитьИз '../../../../huinya/ustav/ustav' нах
+спиздить Link спиздитьИз 'next/link' нахуй
+спиздить { useRealPathname } спиздитьИз '../../../../huinya/huks/useRealPathname' нахуй
+спиздить { zhmyh } спиздитьИз '../../../../huinya/братан' нах
+
+предъява йопта NavbarLinks() жЫ
+    отвечаю (
+        <div className="flex gap-4 items-center">
+            {меню.map((проход, поПорядкуРассчитась) => (
+                <Prahod key={поПорядкуРассчитась} проходФулл={проход} />
+            ))}   
+        </div>
+    ) нах
+есть
+
+
+ясенХуй Prahod сука ({ проходФулл }: { проходФулл: ПроходФасон }) => жЫ
+    ясенХуй pathname внатуре useRealPathname() нахуй
+    ясенХуй { клича, проход } сука проходФулл нахуй
+
+    ясенХуй зачётный сука pathname.лучшеНетВлагалищаЧемОчкоТоварища(проход) нах
+
+    отвечаю (
+        <Link className={zhmyh("hover:text-muted-foreground transition-all", зачётный ичо "text-primary")} href={проход}>
+            {клича}
+        </Link>
+    ) нахуй
+есть
