@@ -1,10 +1,9 @@
-// fix-client.js
 const fs = require("fs");
 const path = require("path");
 
-const rootDir = path.resolve(__dirname, "src"); // Поменяй, если надо
+const rootDir = path.resolve(__dirname, "../src");
+const wrapperPath = path.join(rootDir, "client-wrappers.tsx");
 
-// Рекурсивно ищем все файлы с расширением .yopta
 function getAllYoptaFiles(dir) {
   let results = [];
   const list = fs.readdirSync(dir, { withFileTypes: true });
@@ -19,56 +18,54 @@ function getAllYoptaFiles(dir) {
   return results;
 }
 
-// Проверяем, есть ли 'use client' в файле
+function toPascalCase(str) {
+  return str
+    .split(/[-_]/g)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
+}
+
 function hasUseClient(filepath) {
   const content = fs.readFileSync(filepath, "utf8");
   return content.includes("'use client'") || content.includes('"use client"');
 }
 
-// Создаём или обновляем client-wrappers.tsx в папке
-function updateClientWrapper(folderPath, files) {
-  if (files.length === 0) return;
-
-  const imports = files
-    .map((f, i) => {
-      const baseName = path.basename(f, ".yopta");
-      return `import ${baseName} from './${baseName}.yopta';`;
-    })
-    .join("\n");
-
-  const exports = files.map((f) => path.basename(f, ".yopta")).join(", ");
-
-  const wrapperContent = `'use client';
-
-${imports}
-
-export { ${exports} };
-`;
-
-  const wrapperPath = path.join(folderPath, "client-wrappers.tsx");
-  fs.writeFileSync(wrapperPath, wrapperContent, "utf8");
-  console.log(`Обновлен ${wrapperPath}`);
-}
-
-function groupByFolder(files) {
-  const map = new Map();
-  for (const file of files) {
-    const folder = path.dirname(file);
-    if (!map.has(folder)) map.set(folder, []);
-    map.get(folder).push(file);
-  }
-  return map;
+function toRelativeImport(from, to) {
+  let rel = path.relative(from, to).replace(/\\/g, "/");
+  if (!rel.startsWith(".")) rel = "./" + rel;
+  rel = rel.replace(/\.yopta$/, "");
+  return rel;
 }
 
 function main() {
   const allFiles = getAllYoptaFiles(rootDir);
   const clientFiles = allFiles.filter(hasUseClient);
-  const grouped = groupByFolder(clientFiles);
 
-  for (const [folder, files] of grouped.entries()) {
-    updateClientWrapper(folder, files);
+  if (clientFiles.length === 0) {
+    console.log('Клиентских .yopta файлов с "use client" не найдено');
+    return;
   }
-  console.log("Готово, обёртки client-wrappers.tsx созданы/обновлены.");
+
+  const imports = [];
+  const exports = [];
+
+  for (const file of clientFiles) {
+    const rawName = path.basename(file, ".yopta");
+    const baseName = toPascalCase(rawName);
+    const importPath = toRelativeImport(rootDir, file);
+    imports.push(`import { ${baseName} } from '${importPath}';`);
+    exports.push(baseName);
+  }
+
+  const wrapperContent = `'use client';
+
+${imports.join("\n")}
+
+export { ${exports.join(", ")} };
+`;
+
+  fs.writeFileSync(wrapperPath, wrapperContent, "utf8");
+  console.log(`Обновлен общий файл ${wrapperPath}`);
 }
 
 main();

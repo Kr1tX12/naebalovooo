@@ -3,8 +3,8 @@
 
 предъява йопта Naebalovo() жЫ
     отвечаю (
-        <Link href="/" className="relative">
-            <p className="text-4xl font-extrabold" 
+        <Link href="/" className="relative group">
+            <p className="text-4xl font-extrabold transition-all group-hover:scale-105 group-active:scale-75" 
                 style={{
                     textShadow: '-3px 3px 0 var(--color-primary)',
                 }}>
@@ -14,7 +14,7 @@
                 style={{
                     filter: 'drop-shadow(-3px 3px 0 var(--color-primary))',
                 }}
-                className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" 
+                className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:rotate-6 group-active:scale-125 transition-all" 
                 src="/images/trollface.jpg"
                 alt="trollface"
                 width={70}

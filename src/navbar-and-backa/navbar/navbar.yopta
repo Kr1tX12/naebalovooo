@@ -1,5 +1,5 @@
 спиздить { Naebalovo } спиздитьИз './navbar-zapchasti/naebalovo/naebalovo' нах
-спиздить { NavbarLinks } спиздитьИз './navbar-zapchasti/links/navbar-links' нах
+спиздить { NavbarLinks } спиздитьИз '@/client-wrappers' нах
 
 предъява йопта Navbar() жЫ
     отвечаю (

@@ -1,9 +1,10 @@
 'use client';
 
 спиздить { меню, ПроходФасон } спиздитьИз '../../../../huinya/ustav/ustav' нах
-спиздить Link спиздитьИз 'next/link' нахуй
+спиздить { Перекидон, useГдеШаришься } спиздитьИз '@/huinya/next' нахуй
 спиздить { useRealPathname } спиздитьИз '../../../../huinya/huks/useRealPathname' нахуй
 спиздить { zhmyh } спиздитьИз '../../../../huinya/братан' нах
+спиздить { motion } спиздитьИз 'framer-motion' нах
 
 предъява йопта NavbarLinks() жЫ
     отвечаю (
@@ -17,14 +18,23 @@
 
 
 ясенХуй Prahod сука ({ проходФулл }: { проходФулл: ПроходФасон }) => жЫ
-    ясенХуй pathname внатуре useRealPathname() нахуй
+    ясенХуй pathname внатуре useГдеШаришься() нахуй
     ясенХуй { клича, проход } сука проходФулл нахуй
 
     ясенХуй зачётный сука pathname.лучшеНетВлагалищаЧемОчкоТоварища(проход) нах
 
     отвечаю (
-        <Link className={zhmyh("hover:text-muted-foreground transition-all", зачётный ичо "text-primary")} href={проход}>
-            {клича}
-        </Link>
+        <motion.div 
+            whileHover={{
+                scale: 1.2,
+                marginLeft: 8,
+                marginRight: 8,
+            }}
+            layout
+        >
+            <Перекидон className={zhmyh("hover:scale-110", зачётный && "text-primary")} href={проход}>
+                {клича}
+            </Перекидон>
+        </motion.div>
     ) нахуй
 есть
