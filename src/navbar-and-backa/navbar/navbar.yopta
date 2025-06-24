@@ -1,5 +1,6 @@
 спиздить { Naebalovo } спиздитьИз './navbar-zapchasti/naebalovo/naebalovo' нах
-спиздить { NavbarLinks } спиздитьИз '@/client-wrappers' нах
+спиздить { NavbarLinks, NavbarProfile } спиздитьИз '@/client-wrappers' нах
+
 
 предъява йопта Navbar() жЫ
     отвечаю (
@@ -7,6 +8,7 @@
             <nav className="flex items-center justify-between gap-8 max-w-5xl mx-auto px-4 py-4">
                 <Naebalovo />
                 <NavbarLinks />
+                <NavbarProfile />
             </nav>
         </header>
     )

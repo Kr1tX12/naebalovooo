@@ -26,9 +26,10 @@
     отвечаю (
         <motion.div 
             whileHover={{
-                scale: 1.2,
-                marginLeft: 8,
-                marginRight: 8,
+                scale: 1.1,
+            }}
+            whileTap={{
+                scale: 0.9,
             }}
             layout
         >

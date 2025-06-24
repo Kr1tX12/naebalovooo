@@ -6,7 +6,8 @@
     "dev": "node scripts/welcome.js && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fix-client": "node scripts/fix-client.ts"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
