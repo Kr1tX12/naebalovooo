@@ -6,7 +6,7 @@
 спиздить { zhmyh } спиздитьИз '../../../../huinya/братан' нах
 спиздить { motion } спиздитьИз 'framer-motion' нах
 
-предъява йопта NavbarLinks() жЫ
+предъява наотыбись йопта NavbarLinks() жЫ
     отвечаю (
         <div className="flex gap-4 items-center">
             {меню.map((проход, поПорядкуРассчитась) => (

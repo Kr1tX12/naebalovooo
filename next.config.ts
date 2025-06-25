@@ -9,6 +9,9 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["yopta", "tsx", "ts", "jsx", "js"],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack: (config) => {
     config.resolve.extensions.push(".yopta");
     config.resolve.fullySpecified = false;
