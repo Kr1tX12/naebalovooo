@@ -22,7 +22,9 @@
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <main className="mt-18">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

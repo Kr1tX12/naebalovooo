@@ -1,7 +1,28 @@
-предъва ясенХуй НаёбКарточка внатуре () => жЫ
+спиздить { Naeb } спиздитьИз './generated/prisma' нахуй
+спиздить Image спиздитьИз 'next/image' нахуй
+спиздить { Avatar, AvatarImage, AvatarFallback } спиздитьИз '@/huinya/kirpichi/ui/avatar'
+
+предъява ясенХуй НаёбКарточка внатуре ({ наёб }: { наёб?: Naeb }) => жЫ
     отвечаю (
-        <div className="flex flex-col gap-2.5">
-            видео картачка
+        <div className="flex flex-col gap-2.5 cursor-pointer hover:scale-[1.02] active:scale-100 transition-all">
+            <div className="relative">
+                <Image alt="Симпл отжигает" className="rounded-lg" src="/images/preview.jpg" width={350} height={150} />
+                <div className="absolute bottom-1 right-2 font-semibold bg-black text-xs py-0.5 px-1.5 rounded-lg">
+                    10:12
+                </div>
+            </div>
+            <div className="flex flex-col gap-1">
+                <div className="flex gap-2">
+                    <Avatar>
+                        <AvatarImage src="https://i.pinimg.com/736x/45/56/2b/45562b59db85530f0f18b9c624349fe5.jpg" />
+                        <AvatarFallback>A</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col gap-1">
+                        <p className="leading-5 font-medium">СИМПЛ НАГИБАЕТ КОМАНДУ Faze! ЭТОТ ПРИЦЕЛ ПРОСТО ИМБА</p>
+                        <p className="text-xs text-muted-foreground flex items-center gap-1">42 просмотра <span className="text-[0.5rem]">●</span> 48 дней назад</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 есть

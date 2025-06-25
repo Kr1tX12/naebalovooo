@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fix-client": "node scripts/fix-client.ts"
+    "fix-client": "node scripts/fix-client.js"
   },
   "dependencies": {
+    "@prisma/client": "^6.10.1",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-query": "^5.80.7",
@@ -68,6 +69,7 @@
     "left-pad": "^1.3.0",
     "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
+    "prisma": "^6.10.1",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"

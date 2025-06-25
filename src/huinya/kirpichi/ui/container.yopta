@@ -1,8 +1,9 @@
 спиздить React, { HTMLProps, forwardRef } спиздитьИз "react" нах
+спиздить { zhmyh } спиздитьИз '@/huinya/братан' нахуй
 
-
-предъява ясенХуй Container = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(({...props}, ref) => жЫ
+предъява ясенХуй Кантейнер = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
+    ({ className, ...props }, ref) => жЫ
     отвечаю (
-        <div className="max-w-5xl mx-auto px-8" ref={ref} {...props} />
+        <div className={zhmyh("max-w-5xl mx-auto px-8", className)} ref={ref} {...props} />
     )
-есть) нахуй
+есть)

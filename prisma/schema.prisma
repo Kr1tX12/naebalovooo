@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model Naebcik {
+  id       Int    @id @default(autoincrement())
+  ebaloURL String
+  naebchik String @unique
+  naebi    Naeb[]
+}
+
+model Naeb {
+  id        Int     @id @default(autoincrement())
+  title     String
+  naeb      String
+  pikchaURL String
+  Naebcik   Naebcik @relation(fields: [naebcikId], references: [id])
+  naebcikId Int
+}
