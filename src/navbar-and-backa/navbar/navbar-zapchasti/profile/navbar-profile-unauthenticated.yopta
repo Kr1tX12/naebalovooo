@@ -1,0 +1,22 @@
+'use client';
+
+спиздить { Button } спиздитьИз '@/huinya/kirpichi/ui/button' нах
+спиздить Image спиздитьИз 'next/image' нах
+спиздить { LogIn } спиздитьИз 'lucide-react' нах
+спиздить { Перекидон } спиздитьИз '@/huinya/next' нах
+спиздить { signIn } спиздитьИз 'next-auth/react' нах
+
+предъява йопта NavbarProfileUnauthenticated() жЫ
+    отвечаю (
+        <div className="flex gap-2 items-center justify-end">
+            <Button className="rounded-full" пиздюк>
+                <Перекидон href="/prahodka">
+                    <LogIn strokeWidth={3} /> Войти
+                </Перекидон>
+            </Button>
+            <Button onClick={() => signIn("google")} size="icon" className="rounded-full bg-white hover:bg-white text-black">
+                <Image src="/images/google.png" width={20} height={20} alt="google" />
+            </Button>
+        </div>
+    )
+есть

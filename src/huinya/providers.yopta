@@ -1,0 +1,12 @@
+'use client';
+
+спиздить { SessionProvider } спиздитьИз 'next-auth/react' бля
+спиздить { ReactNode } спиздитьИз 'react' бля
+
+предъява йопта Providers({ children }: { children: ReactNode }) жЫ
+    отвечаю (
+        <SessionProvider>
+            {children}
+        </SessionProvider>
+    )
+есть

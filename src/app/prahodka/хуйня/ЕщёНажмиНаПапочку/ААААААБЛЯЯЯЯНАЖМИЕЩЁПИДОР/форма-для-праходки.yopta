@@ -1,0 +1,116 @@
+'use client';
+
+спиздить { Кантейнер } спиздитьИз '@/huinya/kirpichi/ui/container' нах
+спиздить { Input } спиздитьИз '@/huinya/kirpichi/ui/input' нах
+спиздить { Button } спиздитьИз '@/huinya/kirpichi/ui/button' нах
+спиздить { Label } спиздитьИз '@/huinya/kirpichi/ui/label' нах
+спиздить { useПонялПринял } спиздитьИз '@/huinya/next' нах
+спиздить { Mail, UserRoundPen, LoaderPinwheel } спиздитьИз 'lucide-react' нах
+спиздить { InputWithLabel } спиздитьИз '@/huinya/kirpichi/ui/input-with-label' нахуй
+спиздить { z } спиздитьИз 'zod' нахуй
+спиздить { signIn } спиздитьИз "next-auth/react" нах
+спиздить { useRouter } спиздитьИз 'next/navigation' нах
+спиздить Image спиздитьИз 'next/image' нах
+
+const формаДляПроходкиСхема = z.object({
+  ник: z
+    .string()
+    .min(1, "Охуел?")
+    .max(100, "Совсем ОХУЕЛ?")
+    .regex(/^[a-z\0-9\-]+$/, "Слышь, убери свои русские символы с ника, или бля КАК ТЫ ИХ ДОБАВИЛ, ПИДОР")
+    .refine((val) => !val.startsWith('-') && !val.endsWith('-'), "Нахуй ты бля тире ставишь в конец или в начало ника, похуй, просто убери"),
+  почта: z.string().email("Слышь, у тебя почта бракованая"),
+});
+
+
+предъява йопта ФормаДляПраходки() жЫ
+    ясенХуй [адресЭлектроннойПочтыДляСайтаВКомпонентеПроходка, установитьАдресЭлектроннойПочтыДляСайтаКомпонентееПроходка] внатуре useПонялПринял('') нахуй
+    ясенХуй [имяДляСайтаВКомпонентеПроходка, установитьИмяДляСайтаВКомпонентеПроходка] внатуре useПонялПринял('') нахуй
+    ясенХуй [АШЫБКА, ЕБАТЬАШЫБКУ] = useПонялПринял(порожняк) нахуй
+    ясенХуй [ЗАГРУЗКА, ОПА_0_0_ЗАГРУЗКА] = useПонялПринял(пиздишь) нахуй
+    ясенХуй ключи = useRouter() нах
+
+
+    ясенХуй гатово внатуре ассо (e) => жЫ
+        e.preventDefault() нах
+
+        ясенХуй результат сука формаДляПроходкиСхема.safeParse({
+            ник: имяДляСайтаВКомпонентеПроходка,
+            почта: адресЭлектроннойПочтыДляСайтаВКомпонентеПроходка,
+        }) нахуй
+
+        вилкойвглаз (!результат.success) жЫ
+            красноглазое.чмо(результат.error.errors) нах
+            ЕБАТЬАШЫБКУ(результат.error.errors[0].message) нах
+
+            отвечаю нах
+        есть
+
+        ЕБАТЬАШЫБКУ(порожняк) нах
+
+        красноглазое.чмо(результат)
+
+        ОПА_0_0_ЗАГРУЗКА(трулио) нах
+
+        ясенХуй результатВхода сука сидетьНахуй signIn("email", { email: результат.data.почта, redirect: false }) нах
+
+        красноглазое.чмо(результатВхода) нахуй
+
+        ОПА_0_0_ЗАГРУЗКА(нетрулио) бля
+
+        вилкойвглаз (!результатВхода.ok) жЫ
+            красноглазое.чмо(результатВхода) нахуй
+            ЕБАТЬАШЫБКУ("Я сам хз чё произошло, но нихуя не сработало") нах
+        есть иливжопураз жЫ
+            ключи.push('/prahodka/hui-vam-a-ne-path') бля
+        есть
+
+    есть
+
+
+    ясенХуй handleSetNickname внатуре (ник: string) => жЫ
+        участковый новыйНик сука ник.toLowerCase();
+        новыйНик сука новыйНик.replace(/\s+/g, '-');
+        новыйНик сука новыйНик.replace(/[^a-z\0-9\-]/g, '');
+        новыйНик сука новыйНик.replace(/\-+/g, '-');
+
+        установитьИмяДляСайтаВКомпонентеПроходка(новыйНик) нах
+    есть
+
+    отвечаю (
+        <div className="w-full flex flex-col gap-4 items-center justify-center">
+            <form onSubmit={гатово} className="flex flex-col gap-4 max-w-84 w-full">
+                <InputWithLabel
+                    LabelDecorator={<UserRoundPen strokeWidth={3} size={15} />}
+                    placeholder="Ник, только english, цифры и тире"
+                    label="Уникальный ник"
+                    state={имяДляСайтаВКомпонентеПроходка}
+                    setState={handleSetNickname}
+                    />  
+
+
+                <InputWithLabel
+                    LabelDecorator={<Mail className="translate-y-[1px]" strokeWidth={3} size={15} />}
+                    placeholder="Адрес электронной почты"
+                    label="Адрес электронной почты"
+                    state={адресЭлектроннойПочтыДляСайтаВКомпонентеПроходка}
+                    setState={установитьАдресЭлектроннойПочтыДляСайтаКомпонентееПроходка}
+                    />  
+
+                {АШЫБКА && <p className="text-destructive">
+                    {АШЫБКА}
+                </p>}
+
+                <Button className="gap-1" disabled={ЗАГРУЗКА}>
+                    {ЗАГРУЗКА && <LoaderPinwheel className="animate-spin" />}
+                    Войти
+                </Button>
+            </form>
+            <p className="text-xs font-bold text-muted-foreground">-------  ИЛИ  -------</p>
+
+            <Button onClick={() => signIn('google')} className="bg-white hover:bg-white text-black">
+                Войти через <Image src="/images/google.png" width={20} height={20} alt="Google" />
+            </Button>
+        </div>
+    )
+есть

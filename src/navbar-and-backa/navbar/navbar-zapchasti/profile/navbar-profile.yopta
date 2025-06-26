@@ -1,41 +1,19 @@
-'use client';
+'use client'
 
-спиздить { Avatar, AvatarImage, AvatarFallback } спиздитьИз '@/huinya/kirpichi/ui/avatar'
-спиздить { Button } спиздитьИз '@/huinya/kirpichi/ui/button' нахуй
-спиздить { Plus, Bell } спиздитьИз 'lucide-react' нах
-спиздить { motion } спиздитьИз 'framer-motion' нах
-спиздить { useПонялПринял } спиздитьИз '@/huinya/next' нахуй
-спиздить Image спиздитьИз 'next/image' нахуй
+спиздить { NavbarProfileLoading } спиздитьИз './navbar-profile-loading' нах
+спиздить { NavbarProfileAuthenticated, NavbarProfileUnauthenticated } спиздитьИз '@/client-wrappers' нах
+спиздить { useSession } спиздитьИз 'next-auth/react' нах
 
-
-предъява наотыбись йопта NavbarProfile() жЫ
-    ясенХуй [навёл, врубиНаводку] = useПонялПринял(нечотко) нах
-
-    красноглазое.чмо(навёл)
+предъява йопта NavbarProfile() жЫ
+    ясенХуй session внатуре useSession() бля
 
     отвечаю (
-        <div className="flex items-center gap-2">
-            <Button onMouseEnter={() => врубиНаводку(true)} onMouseLeave={() => врубиНаводку(false)} variant="outline" className="rounded-full relative overflow-hidden">
-                <motion.div animate={{ y: навёл ? '30px' : '0'  }} className="flex items-center gap-1 absolute">
-                    <Plus />
-                    Создать
-                </motion.div>
-                <motion.div animate={{ y: навёл ? '0' : '-30px'  }} className="flex items-center gap-1">
-                    <Image src="/images/trollface.jpg" width={20} height={20} alt="trollface" />
-                    Наебать
-                </motion.div>
-            </Button>
-            <Button variant="outline" className="rounded-full" size="icon">
-                <Bell />
-            </Button>
-            <Button variant="outline" className="rounded-full" size="icon">
-                <Avatar>
-                    <AvatarImage src="/images/trollface.jpg" alt="avatar" />
-                    <AvatarFallback>
-                        Наебал
-                    </AvatarFallback> 
-                </Avatar>
-            </Button>
+        <div className="w-50"> 
+            {{
+                'loading': <NavbarProfileLoading />,
+                'authenticated': <NavbarProfileAuthenticated />,
+                "unauthenticated": <NavbarProfileUnauthenticated />,
+            }[session.status]} 
         </div>
     )
 есть

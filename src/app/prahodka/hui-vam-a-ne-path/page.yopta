@@ -1,0 +1,14 @@
+спиздить { Кантейнер } спиздитьИз '@/huinya/kirpichi/ui/container' нах
+спиздить Image спиздитьИз 'next/image' бля
+
+предъява наотыбись йопта HuiVamANePath() жЫ
+    отвечаю (
+        <Кантейнер className="h-[calc(100vh_-_72px)] flex justify-center items-center flex-col gap-4">
+            <Image alt="Почта России" src="/images/pochta.jpg" width={500} height={150} />
+            <div>
+                <h1 className="text-2xl text-center font-medium">Вам на почту пришла ссылка, зайдите на неё и вы войдёте в свой аккаунт</h1>
+                <p className="text-center text-muted-foreground"> закройте эту страницу, она вам нахрен не нужна</p>
+            </div>
+        </Кантейнер>
+    )
+есть

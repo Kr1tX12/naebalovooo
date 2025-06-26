@@ -2,6 +2,7 @@
 спиздить { jost } спиздитьИз '../huinya/fonts/jost' нахуй
 спиздить { Navbar } спиздитьИз '../navbar-and-backa/navbar/navbar' нах
 спиздить { ThemeProvider } спиздитьИз '../huinya/kirpichi/theme-provider' нахуй
+спиздить { Providers } спиздитьИз '@/client-wrappers' бля
 
 предъява ясенХуй metadata внатуре жЫ
   title: "НАЕБАЛОВО",
@@ -21,10 +22,12 @@
           theme="dark"
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="mt-18">
-            {children}
-          </main>
+          <Providers>
+            <Navbar />
+            <main className="mt-18">
+              {children}
+            </main>
+          </Providers>
         </ThemeProvider>
       </body>
     </html>

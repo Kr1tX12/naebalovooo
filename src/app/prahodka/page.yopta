@@ -1,0 +1,20 @@
+спиздить { Кантейнер } спиздитьИз '@/huinya/kirpichi/ui/container' нах
+спиздить { ФормаДляПраходки } спиздитьИз '@/client-wrappers'
+
+предъява наотыбись йопта Проходка() жЫ
+
+    отвечаю (
+        <Кантейнер className="flex flex-col gap-8 justify-center items-center h-[calc(100vh_-_72px)]">
+            <div className="flex flex-col gap-1">
+                <h1 className="text-3xl text-center font-bold">
+                    Проход на сайт
+                </h1>
+                <p className="text-muted-foreground">
+                    После, вам на почту придёт ссылка для подтверждения почты
+                </p>
+            </div>
+
+            <ФормаДляПраходки />
+        </Кантейнер>
+    )
+есть

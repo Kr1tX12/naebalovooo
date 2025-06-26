@@ -1,0 +1,31 @@
+спиздить { ReactNode } спиздитьИз "react" нахуй
+спиздить { Input } спиздитьИз '@/huinya/kirpichi/ui/input' нах
+спиздить { Label } спиздитьИз '@/huinya/kirpichi/ui/label' нах
+
+
+предъява ясенХуй InputWithLabel внатуре ({
+    label,
+    setState,
+    state,
+    placeholder,
+    LabelDecorator,
+}: {
+    label: string,
+    setState: (value: string) => void,
+    state: string,
+    placeholder: string,
+    LabelDecorator?: ReactNode,
+}) => жЫ
+    отвечаю (
+        <div className="flex flex-col gap-2">
+            <Label className="gap-1">
+                {LabelDecorator}{label}
+            </Label>
+            <Input 
+                onChange={(e) => setState(e.target.value)} 
+                value={state} 
+                placeholder={placeholder} 
+            />
+        </div>
+    )
+есть нах

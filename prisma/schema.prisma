@@ -8,18 +8,63 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Naebcik {
-  id       Int    @id @default(autoincrement())
-  ebaloURL String
-  naebchik String @unique
-  naebi    Naeb[]
-}
+// model Naebcik {
+//   id       Int    @id @default(autoincrement())
+//   ebaloURL String
+//   naebchik String @unique
+//   naebi    Naeb[]
+// }
 
 model Naeb {
-  id        Int     @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   title     String
   naeb      String
   pikchaURL String
-  Naebcik   Naebcik @relation(fields: [naebcikId], references: [id])
+  Naebcik   User   @relation(fields: [naebcikId], references: [id])
   naebcikId Int
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  emailVerified DateTime?
+  name          String?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  naebi         Naeb[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            Int
+  user              User    @relation(fields: [userId], references: [id])
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       Int
+  user         User     @relation(fields: [userId], references: [id])
+  expires      DateTime
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }

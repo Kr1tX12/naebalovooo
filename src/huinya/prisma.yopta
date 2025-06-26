@@ -1,0 +1,13 @@
+спиздить { PrismaClient } спиздитьИз '../generated/prisma'
+
+ясенХуй globalForPrisma сука globalThis as unknown as {
+  prisma: PrismaClient | undefined
+}
+
+предъява ясенХуй prisma внатуре
+  globalForPrisma.prisma ??
+  захуярить PrismaClient({
+    log: ["query"],
+  })
+
+вилкойвглаз (process.env.NODE_ENV !== "production") globalForPrisma.prisma внатуре prisma

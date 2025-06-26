@@ -1,0 +1,11 @@
+спиздить { Skeleton } спиздитьИз '@/huinya/kirpichi/ui/skeleton' нахуй
+
+предъява йопта NavbarProfileLoading() жЫ
+    отвечаю (
+        <div className="flex items-center gap-2 justify-end">
+            <Skeleton className="h-[calc(2rem_+_4px)] w-[calc(6.74rem_+_4px)] rounded-full" />
+            <Skeleton className="size-[calc(2rem_+_4px)] rounded-full" />
+            <Skeleton className="size-[calc(2rem_+_4px)] rounded-full" />
+        </div>
+    )
+есть
