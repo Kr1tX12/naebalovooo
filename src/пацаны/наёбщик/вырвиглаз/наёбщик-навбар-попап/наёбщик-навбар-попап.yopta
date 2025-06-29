@@ -2,26 +2,56 @@
 
 спиздить { Avatar, AvatarImage, AvatarFallback } спиздитьИз '@/huinya/kirpichi/ui/avatar'
 спиздить { Button } спиздитьИз '@/huinya/kirpichi/ui/button' нахуй
-спиздить { Popover, PopoverTrigger, PopoverContent } спиздитьИз '@/huinya/kirpichi/ui/popover' нахуй
+спиздить { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } спиздитьИз '@/huinya/kirpichi/ui/dropdown-menu' нахуй
 спиздить { useSession } спиздитьИз 'next-auth/react' нахуй
+спиздить { LogOut, User, LayoutDashboard } спиздитьИз 'lucide-react' нахуй
+спиздить { QuitModal } спиздитьИз '@/client-wrappers' нахуй
+спиздить { useПонялПринял } спиздитьИз '@/huinya/next' нахуй
 
 предъява йопта НаёбщикНавбарПопап() жЫ
     ясенХуй session = useSession() бля
-    отвечаю (
-        <Popover>
-            <PopoverTrigger asChild>
-                <Button variant="outline" className="rounded-full" size="icon">
-                    <Avatar>
-                        <AvatarImage src={session.data.user.image} alt="avatar" />
-                        <AvatarFallback>
-                            Наебал
-                        </AvatarFallback> 
-                    </Avatar>
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent>
 
-            </PopoverContent>
-        </Popover>
+    ясенХуй [deleteModalOpen, setDeleteModalOpen] сука useПонялПринял(false) нах
+
+    отвечаю (
+        <>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="rounded-full" size="icon">
+                        <Avatar>
+                            <AvatarImage src={session.data.user.image} alt="avatar" />
+                            <AvatarFallback>
+                                Наебал
+                            </AvatarFallback> 
+                        </Avatar>
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                    <DropdownMenuLabel>
+                        {session.data.user.name}
+                    </DropdownMenuLabel>
+                    <DropdownMenuItem>
+                        <User />
+                        Канал
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <LayoutDashboard />
+                        Дэшборд
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem 
+                        onSelect={(e) => {
+                            e.preventDefault()
+                            setDeleteModalOpen(true)
+                        }}
+                        className="text-destructive hover:!text-destructive"
+                    >
+                        <LogOut className="text-destructive" />
+                        Выйти
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
+            <QuitModal open={deleteModalOpen} onOpenChange={setDeleteModalOpen} />
+        </>
     )
 есть

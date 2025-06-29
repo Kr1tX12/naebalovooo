@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import '../styles/_variables.scss';
+@import '../styles/_keyframe-animations.scss';
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -73,4 +76,25 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+  border-radius: 9999999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-input);
 }

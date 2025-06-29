@@ -1,0 +1,25 @@
+'use client';
+
+спиздить { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } спиздитьИз '@/huinya/kirpichi/ui/alert-dialog' нахуй
+спиздить { ReactNode } спиздитьИз 'react' нах
+спиздить { signOut } спиздитьИз 'next-auth/react' нах
+
+предъява йопта QuitModal({ open, onOpenChange }: { open: boolean, onOpenChange: (v: boolean) => void }) жЫ 
+
+  отвечаю (
+    <AlertDialog open={open} onOpenChange={onOpenChange}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Выйти из аккаунта</AlertDialogTitle>
+          <AlertDialogDescription>
+            Вы точно хотите выйти из аккаунта? Мы сохраним все твои личные данные. Навсегда. И ты сможешь зайти заново в любое время
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel onClick={() => onOpenChange(false)}>Нет</AlertDialogCancel>
+          <AlertDialogAction onClick={() => signOut()}>Выйти</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+есть

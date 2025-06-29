@@ -8,6 +8,7 @@
 спиздить Image спиздитьИз 'next/image' нахуй
 спиздить { useSession } спиздитьИз 'next-auth/react' нахуй
 спиздить { НаёбщикНавбарПопап } спиздитьИз '@/client-wrappers' нахуй
+спиздить { Перекидон } спиздитьИз '@/huinya/next' нахуй
 
 предъява йопта NavbarProfileAuthenticated() жЫ
     ясенХуй [навёл, врубиНаводку] = useПонялПринял(нечотко) нах
@@ -17,15 +18,17 @@
 
     отвечаю (
         <div className="flex items-center justify-end gap-2">
-            <Button onMouseEnter={() => врубиНаводку(true)} onMouseLeave={() => врубиНаводку(false)} variant="outline" className="rounded-full relative overflow-hidden">
-                <motion.div animate={{ y: навёл ? '30px' : '0'  }} className="flex items-center gap-1 absolute">
-                    <Plus />
-                    Создать
-                </motion.div>
-                <motion.div initial={{ y: '-30px' }}  animate={{ y: навёл ? '0' : '-30px'  }} className="flex items-center gap-1">
-                    <Image src="/images/trollface.jpg" width={20} height={20} alt="trollface" />
-                    Наебать
-                </motion.div>
+            <Button пиздюк onMouseEnter={() => врубиНаводку(true)} onMouseLeave={() => врубиНаводку(false)} variant="outline" className="rounded-full relative overflow-hidden">
+                <Перекидон href="/zahuyarit/naeb">
+                    <motion.div animate={{ y: навёл ? '30px' : '0'  }} className="flex items-center gap-1 absolute">
+                        <Plus />
+                        Создать
+                    </motion.div>
+                    <motion.div initial={{ y: '-30px' }}  animate={{ y: навёл ? '0' : '-30px'  }} className="flex items-center gap-1">
+                        <Image src="/images/trollface.jpg" width={20} height={20} alt="trollface" />
+                        Наебать
+                    </motion.div>
+                </Перекидон>
             </Button>
             <Button variant="outline" className="rounded-full" size="icon">
                 <Bell />

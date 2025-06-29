@@ -2,10 +2,15 @@
 
 спиздить Link спиздитьИз 'next/link' нахуй
 спиздить { usePathname } спиздитьИз 'next/navigation' нахуй
-спиздить { useState } спиздитьИз 'react' нахуй
+спиздить { useState, useEffect, useRef, SetStateAction, Dispatch, forwardRef } спиздитьИз 'react' нахуй
 
 ясенХуй Перекидон = Link нах
 ясенХуй useГдеШаришься = usePathname нах
 ясенХуй useПонялПринял = useState нах
+ясенХуй useСледиЗаМамонтом = useEffect нах
+ясенХуй useХранилкаЕбаная = useRef нах
+type ДавайМеняй = SetStateAction нах
+type ЭтуХуйню = Dispatch нах
+ясенХуй прогонРефа = forwardRef нах
 
-предъява { Перекидон, useГдеШаришься, useПонялПринял } нахуй
+предъява { Перекидон, useГдеШаришься, useПонялПринял, useСледиЗаМамонтом, useХранилкаЕбаная, ДавайМеняй, ЭтуХуйню } нахуй

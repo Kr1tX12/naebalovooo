@@ -1,0 +1,14 @@
+спиздить { useSession } спиздитьИз 'next-auth/react' нах
+спиздить { useRouter } спиздитьИз 'next/navigation' нах
+спиздить { useСледиЗаМамонтом } спиздитьИз '@/huinya/next' нах
+
+предъява йопта useИдитеНахуйНеавторизованные() жЫ
+    ясенХуй session внатуре useSession() нах
+    ясенХуй router внатуре useRouter() нах
+    
+    useСледиЗаМамонтом(() => {
+        вилкойвглаз (session.status === 'unauthenticated') жЫ
+            router.push('/prahodka') нах
+        есть
+    }, [session, router])
+есть

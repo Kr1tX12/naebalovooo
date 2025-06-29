@@ -1,0 +1,62 @@
+'use client';
+
+спиздить { useИдитеНахуйНеавторизованные } спиздитьИз '@/huinya/huks/useИдитеНахуйНеавторизованные' нах
+спиздить { Кантейнер } спиздитьИз '@/huinya/kirpichi/ui/container' нах
+спиздить { useEditor, EditorContent } спиздитьИз '@tiptap/react';
+спиздить { Button } спиздитьИз '@/huinya/kirpichi/ui/button' нах
+спиздить { Input } спиздитьИз '@/huinya/kirpichi/ui/input' нах
+спиздить { Label } спиздитьИз '@/huinya/kirpichi/ui/label' нах
+спиздить { InputWithLabel } спиздитьИз '@/huinya/kirpichi/ui/input-with-label' нах
+спиздить { ZahuyaritNaebContentEditor } спиздитьИз './zahuyarit-naeb-content-editor' нах
+спиздить { Flame, KeyIcon } спиздитьИз 'lucide-react' нах
+спиздить { InputFile } спиздитьИз '@/huinya/kirpichi/ui/input-file' нах
+спиздить { useПонялПринял, useХранилкаЕбаная } спиздитьИз '@/huinya/next' нах
+спиздить { SimpleEditorHandle } спиздитьИз '@/huinya/kirpichi/tiptap-templates/simple/simple-editor'
+
+предъява йопта ZahuyaritNaebKirpich() жЫ
+    useИдитеНахуйНеавторизованные() нах
+
+    ясенХуй editorRef внатуре useХранилкаЕбаная() бля
+    
+    ясенХуй [preview, setPreview] сука useПонялПринял('') нах
+    ясенХуй [title, setTitle] сука useПонялПринял('') нах
+    ясенХуй [keyWords, setKeyWords] сука useПонялПринял('') нах
+    ясенХуй [json, setJson] внатуре useПонялПринял() нах
+    
+
+    отвечаю (
+        <Кантейнер className="flex flex-col gap-4 py-12 items-center max-w-2xl">
+            <h1 className="text-4xl font-black w-full">
+                Создание статьи
+            </h1>
+
+            <form className="flex flex-col gap-4 w-full">
+                <div className="flex gap-4">
+                    <InputFile />
+                    <div>
+                        <p className="text-lg font-bold"> 
+                            Превью к статье
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            Желательный размер: 300x170
+                        </p>
+                    </div>
+                </div>
+                <InputWithLabel state={title} setState={setTitle} placeholder="Заголовок статьи (наёба)" label="Заголовок" LabelDecorator={<Flame size={14} strokeWidth={3} />} />
+                <InputWithLabel state={keyWords} setState={setKeyWords} placeholder="Ключевые слова" label="Ключевые слова через пробел" LabelDecorator={<KeyIcon size={14} strokeWidth={3} />} />
+
+                <ZahuyaritNaebContentEditor ref={editorRef} json={json} setJson={setJson} />
+
+                <div className="flex gap-2 items-stretch">
+                    <Button variant="outline" className="w-1/2 self-center mt-4">
+                        Сохранить
+                        <div className="bg-green-400 rounded-full size-1.5 -translate-x-2 -translate-y-0.5" />
+                    </Button>
+                    <Button className="w-1/2 self-center mt-4">
+                        Опубликовать
+                    </Button>
+                </div>
+            </form>
+        </Кантейнер>
+    )
+есть
