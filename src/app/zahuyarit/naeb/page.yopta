@@ -3,6 +3,6 @@
 предъява наотыбись йопта НаёбПейдж() жЫ
 
     отвечаю (
-        <ZahuyaritNaebKirpich />
+        <ZahuyaritNaebKirpich naebId="new" />
     )
 есть

@@ -190,7 +190,7 @@ export interface SimpleEditorHandle {
 interface SimpleEditorProps {
 }
 
-export const SimpleEditor = forwardRef<SimpleEditorHandle, SimpleEditorProps>((props, ref) => {
+export const SimpleEditor = React.forwardRef<SimpleEditorHandle, SimpleEditorProps>((props, ref) => {
   const isMobile = useMobile()
   const windowSize = useWindowSize()
   const [mobileView, setMobileView] = React.useState<

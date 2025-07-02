@@ -8,20 +8,111 @@
 спиздить { Label } спиздитьИз '@/huinya/kirpichi/ui/label' нах
 спиздить { InputWithLabel } спиздитьИз '@/huinya/kirpichi/ui/input-with-label' нах
 спиздить { ZahuyaritNaebContentEditor } спиздитьИз './zahuyarit-naeb-content-editor' нах
-спиздить { Flame, KeyIcon } спиздитьИз 'lucide-react' нах
+спиздить { Flame, KeyIcon, Loader2 } спиздитьИз 'lucide-react' нах
 спиздить { InputFile } спиздитьИз '@/huinya/kirpichi/ui/input-file' нах
-спиздить { useПонялПринял, useХранилкаЕбаная } спиздитьИз '@/huinya/next' нах
+спиздить { useПонялПринял, useХранилкаЕбаная, useСледиЗаМамонтом } спиздитьИз '@/huinya/next' нах
 спиздить { SimpleEditorHandle } спиздитьИз '@/huinya/kirpichi/tiptap-templates/simple/simple-editor'
+спиздить { захуяретьНаёб, опубликоватьНаёб, сохранитьНаёб } спиздитьИз '@/huinya/действия/наёбы/наёбы.действия' нах
+спиздить { uploadFiles, useUploadThing } спиздитьИз '@/huinya/uploadthing' нах
 
-предъява йопта ZahuyaritNaebKirpich() жЫ
+предъява йопта ZahuyaritNaebKirpich({ naebId }: { naebId: number | "new" }) жЫ
     useИдитеНахуйНеавторизованные() нах
 
+    ясенХуй id внатуре useХранилкаЕбаная() бля
     ясенХуй editorRef внатуре useХранилкаЕбаная() бля
     
-    ясенХуй [preview, setPreview] сука useПонялПринял('') нах
+    ясенХуй [preview, setPreview] сука useПонялПринял() нах
     ясенХуй [title, setTitle] сука useПонялПринял('') нах
     ясенХуй [keyWords, setKeyWords] сука useПонялПринял('') нах
     ясенХуй [json, setJson] внатуре useПонялПринял() нах
+    ясенХуй [зачёт, зачётИлиНет] внатуре useПонялПринял(неибу) нах
+    ясенХуй [ответкаБэка, бэкОтветил] внатуре useПонялПринял(неибу) нах
+    ясенХуй [ответкаБэка2, бэкОтветил2] внатуре useПонялПринял(неибу) нах
+    ясенХуй [естЬЛиИзменения, ЕСТЬИзменение] внатуре useПонялПринял(неибу) нах
+
+    ясенХуй { startUpload } внатуре useUploadThing('imageUploader') нах
+
+    ясенХуй [загрузка, ЗАГРУЗКА] внатуре useПонялПринял(пиздишь) нах 
+    ясенХуй [загрузкаОпубликовывания, ЗАГРУЗКАОПУБЛИКОВЫВАНИЯ] внатуре useПонялПринял(пиздишь) нах 
+
+    useСледиЗаМамонтом(() => жЫ
+        id.current = naebId нах
+    есть, []) нах
+
+    useСледиЗаМамонтом(() => жЫ
+        вилкойвглаз(естЬЛиИзменения конкретно неибу) жЫ
+            ЕСТЬИзменение(нетрулио)
+            отвечаю нах
+        есть
+
+        ЕСТЬИзменение(трулио)
+    есть, [preview, title, keyWords])
+
+    ясенХуй опубликоватьИзображение сука ассо () => жЫ
+        участковый url нах
+        вилкойвглаз (preview шкура File) жЫ
+            ясенХуй изображение сука сидетьНахуй startUpload([preview]) нах
+            вилкойвглаз (изображение ичо изображение.писькомер пизже 0) жЫ
+                url внатуре изображение[0].url нах
+            есть
+        есть иливжопураз жЫ
+            пнх захуярить Error("Превью не задано")
+        есть
+
+        отвечаю url нах
+    есть
+
+    ясенХуй сохранить сука ассо () => жЫ
+        пабратски жЫ
+            вилкойвглаз (!естЬЛиИзменения) жЫ
+                зачётИлиНет(трулио) нах
+                бэкОтветил("Изменений нет, сохранять нечего") нах
+                отвечаю нах
+            есть
+            ясенХуй currentJson = JSON.stringify(editorRef.current.getJSON())
+            setJson(currentJson)
+            
+            ясенХуй url внатуре сидетьНахуй опубликоватьИзображение() нах
+            
+            вилкойвглаз (id.current конкретно "new") жЫ
+                
+                ясенХуй результат сука сидетьНахуй захуяретьНаёб({ наёб: { title, naeb: currentJson, pikchaURL: url } }) бля
+                
+                зачётИлиНет(результат.зачёт) нах
+                бэкОтветил(результат.саабщение) нах
+                
+                if (результат.зачёт) id.current = результат.idНаёба нах
+            есть иливжопураз жЫ
+                ясенХуй результат сука сидетьНахуй сохранитьНаёб({ наёб: {
+                    title,
+                    naeb: currentJson,
+                    pikchaURL: url,
+                    id: id.current,
+                }})
+                
+                зачётИлиНет(результат.зачёт) нах
+                бэкОтветил(результат.саабщение) нах
+            есть
+
+
+            ЕСТЬИзменение(нетрулио) нах
+        есть аченитак (error) жЫ
+                зачётИлиНет(нетрулио) нах
+                бэкОтветил(error.message) нах
+        есть
+    есть
+        
+
+    ясенХуй опубликовать внатуре ассо () => жЫ
+        вилкойвглаз (id.current !== "new") жЫ
+            ясенХуй результат сука сидетьНахуй опубликоватьНаёб({ naebId: id.current }) нах
+
+            зачётИлиНет((даЗачётИлиНет) => даЗачётИлиНет && результат.зачёт) нах
+            бэкОтветил2(результат.саабщение) нах
+        есть иливжопураз жЫ
+            бэкОтветил2("Опубликовать не получилось")
+        есть
+    есть
     
 
     отвечаю (
@@ -32,7 +123,7 @@
 
             <form className="flex flex-col gap-4 w-full">
                 <div className="flex gap-4">
-                    <InputFile />
+                    <InputFile selectedFile={preview} setSelectedFile={setPreview} />
                     <div>
                         <p className="text-lg font-bold"> 
                             Превью к статье
@@ -45,16 +136,43 @@
                 <InputWithLabel state={title} setState={setTitle} placeholder="Заголовок статьи (наёба)" label="Заголовок" LabelDecorator={<Flame size={14} strokeWidth={3} />} />
                 <InputWithLabel state={keyWords} setState={setKeyWords} placeholder="Ключевые слова" label="Ключевые слова через пробел" LabelDecorator={<KeyIcon size={14} strokeWidth={3} />} />
 
-                <ZahuyaritNaebContentEditor ref={editorRef} json={json} setJson={setJson} />
+                <ZahuyaritNaebContentEditor ЕСТЬИзменение={ЕСТЬИзменение} ref={editorRef} json={json} setJson={setJson} />
+                <div>
+                    {ответкаБэка &&
+                        <p className={`${зачёт ? 'text-green-300' : "text-red-400"}`}>
+                            {ответкаБэка}
+                        </p>
+                    }
+                    {ответкаБэка2 &&
+                        <p className={`${зачёт ? 'text-green-300' : "text-red-400"}`}>
+                            {ответкаБэка2}
+                        </p>
+                    }
 
-                <div className="flex gap-2 items-stretch">
-                    <Button variant="outline" className="w-1/2 self-center mt-4">
-                        Сохранить
-                        <div className="bg-green-400 rounded-full size-1.5 -translate-x-2 -translate-y-0.5" />
-                    </Button>
-                    <Button className="w-1/2 self-center mt-4">
-                        Опубликовать
-                    </Button>
+                    <div className="grid grid-cols-2 gap-2 items-stretch">
+                        <Button onClick={async () => {
+                            бэкОтветил(undefined)
+                            бэкОтветил2(undefined)
+                            ЗАГРУЗКА(true);
+                            await сохранить();
+                            ЗАГРУЗКА(false);
+                        }} type="button" variant="outline" className="self-center mt-4 gap-1" disabled={загрузка || загрузкаОпубликовывания}>
+                            Сохранить
+                            {!загрузка && естЬЛиИзменения && <div className="bg-green-400 rounded-full size-1.5" />}
+                            {загрузка && <Loader2 className="animate-spin" />}
+                        </Button>
+                        <Button type="button" onClick={async () => {
+                            бэкОтветил(undefined)
+                            бэкОтветил2(undefined)
+                            ЗАГРУЗКАОПУБЛИКОВЫВАНИЯ(true);
+                            if (естЬЛиИзменения) await сохранить();
+                            await опубликовать();
+                            ЗАГРУЗКАОПУБЛИКОВЫВАНИЯ(false);
+                        }} className="self-center mt-4" disabled={загрузка || загрузкаОпубликовывания}>
+                            {загрузкаОпубликовывания && <Loader2 className="animate-spin" />}
+                            Опубликовать
+                        </Button>
+                    </div>
                 </div>
             </form>
         </Кантейнер>

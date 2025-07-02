@@ -16,12 +16,17 @@ datasource db {
 // }
 
 model Naeb {
-  id        Int    @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   title     String
   naeb      String
-  pikchaURL String
-  Naebcik   User   @relation(fields: [naebcikId], references: [id])
+  pikchaURL String?
+  Naebcik   User    @relation(fields: [naebcikId], references: [id])
   naebcikId Int
+
+  published Boolean
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
 }
 
 model User {

@@ -1,27 +1,27 @@
-import { forwardRef } from "react"
-
 спиздить { Button } спиздитьИз '@/huinya/kirpichi/ui/button' нах
 спиздить { Expand, Shrink } спиздитьИз 'lucide-react' нах
 спиздить { zhmyh } спиздитьИз '@/huinya/братан' нах
-спиздить { useПонялПринял, useХранилкаЕбаная, ДавайМеняй, ЭтуХуйню, прогонРефа } спиздитьИз '@/huinya/next' нах
+спиздить { useПонялПринял, useХранилкаЕбаная, ДавайМеняй, ЭтуХуйню, прохонРефа, useСледиЗаМамонтом } спиздитьИз '@/huinya/next' нах
 спиздить { SimpleEditor, SimpleEditorHandle } спиздитьИз '@/huinya/kirpichi/tiptap-templates/simple/simple-editor'
 
-type ZahuyaritNaebContentEditorPropsMegaSuperPropsYesYesSkibidiDopDopYesYes = {
-    json: string, 
-    setJson: ДавайМеняй<ЭтуХуйню<string>>
-}
-
-предъява ясенХуй ZahuyaritNaebContentEditor = прогонРефа<SimpleEditorHandle, ZahuyaritNaebContentEditorPropsMegaSuperPropsYesYesSkibidiDopDopYesYes>(
-    ({ json, setJson }, ref) 
-    => жЫ
-
+предъява ясенХуй ZahuyaritNaebContentEditor внатуре прохонРефа(
+    йопта({ ЕСТЬИзменение, json, setJson, ...props }, ref) 
+    жЫ
+    
     ясенХуй [fullscreen, setFullscreen] внатуре useПонялПринял(нечотко) нах
+
+    useСледиЗаМамонтом(() => жЫ
+        вилкойвглаз (!fullscreen && json !== JSON.stringify(ref.current.getJSON())) жЫ
+            ЕСТЬИзменение(трулио) нах
+        есть
+    есть, [fullscreen])
+
     отвечаю (
-        <div className=' flex flex-col items-end'>
+        <div className='flex flex-col items-end'>
             <Button type="button" onClick={() => setFullscreen(true)} variant="outline" className="border-b-0 rounded-b-none mr-4">
                 <Expand />
             </Button>
-            <div className={zhmyh('overflow-auto', fullscreen ? "fixed top-0 bottom-0 left-0 right-0 z-50 bg-background" : "w-full max-h-96 border rounded-xl")}>
+            <div className={zhmyh('overflow-auto', fullscreen ? "fixed top-0 bottom-0 left-0 right-0 z-50 bg-background" : "w-full h-56 border rounded-xl")}>
                 <SimpleEditor ref={ref} />
                 {fullscreen && <Button type="button" onClick={() => setFullscreen(false)} variant="outline" className="fixed top-12 left-2 z-[100]">
                     <Shrink />
