@@ -181,7 +181,7 @@
 
 /* Global colors - Dark mode */
 .dark {
-  --tt-bg-color: var(--black);
+  --tt-bg-color: oklch(0.18 0 17.45);
   --tt-border-color: var(--tt-gray-dark-a-200);
   --tt-border-color-tint: var(--tt-gray-dark-a-100);
   --tt-sidebar-bg-color: var(--tt-gray-dark-100);

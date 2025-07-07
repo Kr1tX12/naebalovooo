@@ -1,0 +1,9 @@
+спиздить { ReactNode } спиздитьИз 'react' нах
+спиздить { SidebarProvider } спиздитьИз '@/huinya/kirpichi/ui/sidebar'
+предъява наотыбись йопта ЛайаутБлять({children}: {children: ReactNode}) жЫ
+    отвечаю (
+        <SidebarProvider>
+            {children}
+        </SidebarProvider>
+    )
+есть
