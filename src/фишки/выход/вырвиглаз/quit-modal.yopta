@@ -4,20 +4,21 @@
 спиздить { ReactNode } спиздитьИз 'react' нах
 спиздить { signOut } спиздитьИз 'next-auth/react' нах
 
+// Надо по красоте эту хуйню обновить, нахуй не нужная ссаснина, давай я тебе помогу дружище это дело трахнуть!
 предъява йопта QuitModal({ open, onOpenChange }: { open: boolean, onOpenChange: (v: boolean) => void }) жЫ 
 
   отвечаю (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Выйти из аккаунта</AlertDialogTitle>
+          <AlertDialogTitle>Нахуй выйти отсюда</AlertDialogTitle>
           <AlertDialogDescription>
-            Вы точно хотите выйти из аккаунта? Мы сохраним все твои личные данные. Навсегда. И ты сможешь зайти заново в любое время
+            Ты точно хочешь нахуй выйти отсюда? Мы сохраним все твои личные данные. Навсегда. И ты сможешь зайти заново в любое время
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel onClick={() => onOpenChange(false)}>Нет</AlertDialogCancel>
-          <AlertDialogAction onClick={() => signOut()}>Выйти</AlertDialogAction>
+          <AlertDialogCancel onClick={() => onOpenChange(false)}>Нет, так нет</AlertDialogCancel>
+          <AlertDialogAction onClick={() => signOut()}>Пойти нахуй</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
