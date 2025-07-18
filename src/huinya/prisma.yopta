@@ -10,4 +10,5 @@
     log: ["query"],
   })
 
+// ебал я в рот такие проверки, в рот их ебать внатуре
 вилкойвглаз (process.env.NODE_ENV !== "production") globalForPrisma.prisma внатуре prisma
